@@ -35,7 +35,7 @@ class BreadcrumbProviderTest extends TestCase
     /**
      * Set up the whole
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->requestAttributes= $this->getMockBuilder('Symfony\Component\HttpFoundation\ParameterBag')
             ->disableOriginalConstructor()

@@ -26,7 +26,7 @@ class BreadcrumbAttachLoaderTest extends TestCase
     /**
      * Set up mocks for the whole router loader
      */
-    public function setUp()
+    public function setUp(): void
     {
         /** @var \PHPUnit_Framework_MockObject_MockObject|\Symfony\Component\Config\Loader\LoaderInterface $delegatingLoader */
         $delegatingLoader = $this->getMockBuilder('Symfony\Component\Config\Loader\LoaderInterface')
