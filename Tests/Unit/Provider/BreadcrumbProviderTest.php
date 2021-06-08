@@ -2,6 +2,7 @@
 
 namespace Thormeier\BreadcrumbBundle\Tests\Unit\Provider;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
@@ -10,7 +11,7 @@ use Thormeier\BreadcrumbBundle\Provider\BreadcrumbProvider;
 /**
  * Provider class test
  */
-class BreadcrumbProviderTest extends \PHPUnit_Framework_TestCase
+class BreadcrumbProviderTest extends TestCase
 {
     const MODEL_CLASS = 'Thormeier\BreadcrumbBundle\Model\Breadcrumb';
 

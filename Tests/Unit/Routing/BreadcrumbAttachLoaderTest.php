@@ -2,6 +2,7 @@
 
 namespace Thormeier\BreadcrumbBundle\Tests\Unit\Routing;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 use Thormeier\BreadcrumbBundle\Model\Breadcrumb;
@@ -10,7 +11,7 @@ use Thormeier\BreadcrumbBundle\Routing\BreadcrumbAttachLoader;
 /**
  * Tests the router loader that hooks in and attaches the breadcrumb options to _breadcrumb defaults
  */
-class BreadcrumbAttachLoaderTest extends \PHPUnit_Framework_TestCase
+class BreadcrumbAttachLoaderTest extends TestCase
 {
     /**
      * @var BreadcrumbAttachLoader
@@ -103,7 +104,7 @@ class BreadcrumbAttachLoaderTest extends \PHPUnit_Framework_TestCase
             ->method('load')
             ->will($this->returnValue($collection));
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException('\InvalidArgumentException');
         $this->loader->load('foobar');
     }
 
@@ -136,7 +137,7 @@ class BreadcrumbAttachLoaderTest extends \PHPUnit_Framework_TestCase
             ->method('load')
             ->will($this->returnValue($collection));
 
-        $this->setExpectedException('\LogicException');
+        $this->expectException('\LogicException');
         $this->loader->load('foobar');
     }
 

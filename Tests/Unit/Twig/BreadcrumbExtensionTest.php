@@ -2,6 +2,7 @@
 
 namespace Thormeier\BreadcrumbBundle\Tests\Unit\Twig;
 
+use PHPUnit\Framework\TestCase;
 use Thormeier\BreadcrumbBundle\Model\BreadcrumbCollection;
 use Thormeier\BreadcrumbBundle\Provider\BreadcrumbProvider;
 use Thormeier\BreadcrumbBundle\Twig\BreadcrumbExtension;
@@ -9,7 +10,7 @@ use Thormeier\BreadcrumbBundle\Twig\BreadcrumbExtension;
 /**
  * Test for twig extension
  */
-class BreadcrumbExtensionTest extends \PHPUnit_Framework_TestCase
+class BreadcrumbExtensionTest extends TestCase
 {
     /**
      * @var string dummy template name

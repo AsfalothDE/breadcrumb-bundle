@@ -2,6 +2,7 @@
 
 namespace Thormeier\BreadcrumbBundle\Tests\Unit\Model;
 
+use PHPUnit\Framework\TestCase;
 use Thormeier\BreadcrumbBundle\Model\Breadcrumb;
 use Thormeier\BreadcrumbBundle\Model\BreadcrumbCollection;
 
@@ -10,7 +11,7 @@ use Thormeier\BreadcrumbBundle\Model\BreadcrumbCollection;
  *
  * Test array logic of collection
  */
-class BreadcrumbCollectionTest extends \PHPUnit_Framework_TestCase
+class BreadcrumbCollectionTest extends TestCase
 {
     /**
      * Test normal adding of breadcrumbs
@@ -113,7 +114,7 @@ class BreadcrumbCollectionTest extends \PHPUnit_Framework_TestCase
 
         $collection = new BreadcrumbCollection();
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException('\InvalidArgumentException');
 
         $collection->addBreadcrumbAfterCrumb($breadcrumbA, $breadcrumbB);
     }
@@ -128,7 +129,7 @@ class BreadcrumbCollectionTest extends \PHPUnit_Framework_TestCase
 
         $collection = new BreadcrumbCollection();
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException('\InvalidArgumentException');
 
         $collection->addBreadcrumbBeforeCrumb($breadcrumbA, $breadcrumbB);
     }
