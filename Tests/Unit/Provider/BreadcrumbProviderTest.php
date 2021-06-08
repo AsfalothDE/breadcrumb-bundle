@@ -3,8 +3,7 @@
 namespace Thormeier\BreadcrumbBundle\Tests\Unit\Provider;
 
 use Symfony\Component\HttpFoundation\ParameterBag;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Thormeier\BreadcrumbBundle\Provider\BreadcrumbProvider;
 
@@ -18,7 +17,7 @@ class BreadcrumbProviderTest extends \PHPUnit_Framework_TestCase
     const COLLECTION_CLASS = 'Thormeier\BreadcrumbBundle\Model\BreadcrumbCollection';
 
     /**
-     * @var GetResponseEvent
+     * @var RequestEvent
      */
     private $responseEvent;
 
@@ -42,10 +41,12 @@ class BreadcrumbProviderTest extends \PHPUnit_Framework_TestCase
             ->setMethods(array('get'))
             ->getMock();
 
-        $request = Request::create('/');
+        $request = $this->getMockBuilder('\Symfony\Component\HttpFoundation\Request')
+            ->disableOriginalConstructor()
+            ->getMock();
         $request->attributes = $this->requestAttributes;
 
-        $this->responseEvent = $this->getMockBuilder('\Symfony\Component\HttpKernel\Event\GetResponseEvent')
+        $this->responseEvent = $this->getMockBuilder('\Symfony\Component\HttpKernel\Event\RequestEvent')
             ->disableOriginalConstructor()
             ->setMethods(array('getRequestType', 'getRequest'))
             ->getMock();

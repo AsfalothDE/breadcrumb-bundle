@@ -10,6 +10,7 @@
             <argument>%thormeier_breadcrumb.class.collection%</argument>
             <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" />
         </service>
+        <service id="Thormeier\BreadcrumbBundle\Provider\BreadcrumbProviderInterface" alias="thormeier_breadcrumb.breadcrumb_provider.default" public="false"/>
 
         <service id="thormeier.breadcrumb.breadcrumb_extension" class="Thormeier\BreadcrumbBundle\Twig\BreadcrumbExtension">
             <argument type="service" id="thormeier_breadcrumb.breadcrumb_provider"/>
