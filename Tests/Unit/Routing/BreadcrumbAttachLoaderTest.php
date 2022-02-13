@@ -148,7 +148,7 @@ class BreadcrumbAttachLoaderTest extends TestCase
     {
         $resource = 'foo';
         $type = 'bar';
-        $result = 'baz';
+        $result = true;
 
         $this->delegatingLoader->expects($this->once())
             ->method('supports')
