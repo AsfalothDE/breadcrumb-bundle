@@ -17,7 +17,7 @@ class ThormeierBreadcrumbBundle extends Bundle
     /**
      * @return ThormeierBreadcrumbExtension
      */
-    public function getContainerExtension()
+    public function getContainerExtension(): ?ExtensionInterface
     {
         return new ThormeierBreadcrumbExtension();
     }
