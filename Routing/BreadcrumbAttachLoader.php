@@ -29,6 +29,7 @@ class BreadcrumbAttachLoader extends Loader
 
     /**
      * {@inheritdoc}
+     * @return mixed
      */
     public function load($resource, $type = null)
     {

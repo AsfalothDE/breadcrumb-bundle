@@ -15,7 +15,7 @@ class RoutingLoaderCompilerPass implements CompilerPassInterface
      *
      * @param ContainerBuilder $container
      */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $routingLoaderDefinition = $container->getDefinition('routing.loader');
 
