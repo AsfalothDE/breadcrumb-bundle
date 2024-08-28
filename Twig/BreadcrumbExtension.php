@@ -16,22 +16,11 @@ use Twig\Extension\AbstractExtension;
 class BreadcrumbExtension extends AbstractExtension
 {
     /**
-     * @var BreadcrumbProviderInterface
-     */
-    private $breadcrumbProvider;
-
-    /**
-     * @var string
-     */
-    private $template;
-
-    /**
      * @param BreadcrumbProviderInterface $breadcrumbProvider
+     * @param string $template
      */
-    public function __construct(BreadcrumbProviderInterface $breadcrumbProvider, $template)
+    public function __construct(private readonly BreadcrumbProviderInterface $breadcrumbProvider, private $template)
     {
-        $this->breadcrumbProvider = $breadcrumbProvider;
-        $this->template = $template;
     }
 
     /**
@@ -41,19 +30,15 @@ class BreadcrumbExtension extends AbstractExtension
      */
     public function getFunctions()
     {
-        return array(
+        return [
             new TwigFunction(
-                'breadcrumbs',
-                array(
-                    $this,
-                    'renderBreadcrumbs'
-                ),
-                array(
-                    'needs_environment' => true,
-                    'is_safe' => array('html'),
-                )
-            ),
-        );
+            'breadcrumbs',
+            $this->renderBreadcrumbs(...),
+            [
+                'needs_environment' => true,
+                'is_safe' => ['html'],
+            ],
+        )];
     }
 
     /**
@@ -67,9 +52,9 @@ class BreadcrumbExtension extends AbstractExtension
      */
     public function renderBreadcrumbs(Environment $twigEnvironment)
     {
-        return $twigEnvironment->render($this->template, array(
-            'breadcrumbs' => $this->breadcrumbProvider->getBreadcrumbs()->getAll()
-        ));
+        return $twigEnvironment->render($this->template, [
+            'breadcrumbs' => $this->breadcrumbProvider->getBreadcrumbs()->getAll(),
+        ]);
     }
 
     /**

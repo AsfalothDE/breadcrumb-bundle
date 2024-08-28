@@ -8,16 +8,6 @@ namespace Thormeier\BreadcrumbBundle\Model;
 class Breadcrumb implements BreadcrumbInterface
 {
     /**
-     * @var string
-     */
-    private $label;
-
-    /**
-     * @var string
-     */
-    private $route;
-
-    /**
      * @var array
      */
     private $routeParameters;
@@ -33,10 +23,8 @@ class Breadcrumb implements BreadcrumbInterface
      * @param array  $routeParameters
      * @param array  $labelParameters
      */
-    public function __construct($label, $route, array $routeParameters = array(), array $labelParameters = array())
+    public function __construct(private $label, private $route, array $routeParameters = [], array $labelParameters = [])
     {
-        $this->label = $label;
-        $this->route = $route;
         $this->setRouteParameters($routeParameters);
         $this->setLabelParameters($labelParameters);
     }

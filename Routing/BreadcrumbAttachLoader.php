@@ -13,25 +13,19 @@ use Symfony\Component\Routing\RouteCollection;
 class BreadcrumbAttachLoader extends Loader
 {
     /**
-     * @var LoaderInterface
-     */
-    private $routerLoader;
-
-    /**
      * Attaches breadcrumb tree to every routes default config
      *
      * @param LoaderInterface $routerLoader
      */
-    public function __construct(LoaderInterface $routerLoader)
+    public function __construct(private readonly LoaderInterface $routerLoader)
     {
-        $this->routerLoader = $routerLoader;
     }
 
     /**
      * {@inheritdoc}
      * @return mixed
      */
-    public function load($resource, $type = null)
+    public function load($resource, $type = null): mixed
     {
         $routeCollection = $this->routerLoader->load($resource, $type);
 
@@ -70,7 +64,7 @@ class BreadcrumbAttachLoader extends Loader
      *
      * @return array
      */
-    private function getBreadcrumbs(Route $route, $routeKey, RouteCollection $routeCollection, $rawBreadcrumbsCollection = array())
+    private function getBreadcrumbs(Route $route, $routeKey, RouteCollection $routeCollection, $rawBreadcrumbsCollection = [])
     {
         $breadcrumbOptions = $route->getOption('breadcrumb');
 
@@ -82,10 +76,10 @@ class BreadcrumbAttachLoader extends Loader
             ));
         }
 
-        $rawCrumb = array(
+        $rawCrumb = [
             'route' => $routeKey,
             'label' => $breadcrumbOptions['label'],
-        );
+        ];
 
         // If this route already is in the raw collection, there's likely a circular breadcrumb, which will cause memory exhaustion
         if (false !== array_search($rawCrumb, $rawBreadcrumbsCollection)) {

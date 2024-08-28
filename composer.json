@@ -17,13 +17,14 @@
         ]
     },
     "require": {
-        "php": ">=7.2",
-        "symfony/framework-bundle": "^4.4 || ^5.0 || ^6.0"
+        "php": ">=8.2",
+        "symfony/framework-bundle": "^4.4 || ^5.0 || ^6.0 || ^7.0"
     },
     "require-dev": {
         "twig/twig": "^2.0 || ^3.0",
-        "symfony/twig-bundle": "^4.4 || ^5.0 || ^6.0",
-        "phpunit/phpunit": "9.*"
+        "symfony/twig-bundle": "^4.4 || ^5.0 || ^6.0 || ^7.0",
+        "phpunit/phpunit": "9.*",
+        "rector/rector": "^1.2"
     },
     "suggest": {
         "twig/twig": "To render breadcrumbs with a twig template"

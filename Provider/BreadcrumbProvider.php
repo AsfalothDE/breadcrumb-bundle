@@ -25,23 +25,11 @@ class BreadcrumbProvider implements BreadcrumbProviderInterface
     private $breadcrumbs = null;
 
     /**
-     * @var string
-     */
-    private $modelClass;
-
-    /**
-     * @var string
-     */
-    private $collectionClass;
-
-    /**
      * @param string $modelClass
      * @param string $collectionClass
      */
-    public function __construct($modelClass, $collectionClass)
+    public function __construct(private $modelClass, private $collectionClass)
     {
-        $this->modelClass = $modelClass;
-        $this->collectionClass = $collectionClass;
     }
 
     /**
@@ -51,8 +39,8 @@ class BreadcrumbProvider implements BreadcrumbProviderInterface
      */
     public function onKernelRequest(RequestEvent $event)
     {
-        if ($event->getRequestType() === HttpKernelInterface::MASTER_REQUEST) {
-            $this->requestBreadcrumbConfig = $event->getRequest()->attributes->get('_breadcrumbs', array());
+        if ($event->getRequestType() === HttpKernelInterface::MAIN_REQUEST) {
+            $this->requestBreadcrumbConfig = $event->getRequest()->attributes->get('_breadcrumbs', []);
         }
     }
 

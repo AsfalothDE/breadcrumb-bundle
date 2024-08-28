@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Thormeier\BreadcrumbBundle\Model\BreadcrumbCollection;
 use Thormeier\BreadcrumbBundle\Provider\BreadcrumbProvider;
 use Thormeier\BreadcrumbBundle\Twig\BreadcrumbExtension;
+use Twig\Environment;
 
 /**
  * Test for twig extension
@@ -32,7 +33,7 @@ class BreadcrumbExtensionTest extends TestCase
      */
     public function testRenderBreadcrumbs()
     {
-        $twigEnv = $this->getMockBuilder('\Twig_Environment')
+        $twigEnv = $this->getMockBuilder(Environment::class)
             ->disableOriginalConstructor()
             ->getMock();
 

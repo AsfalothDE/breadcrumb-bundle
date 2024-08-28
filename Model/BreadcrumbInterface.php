@@ -13,7 +13,7 @@ interface BreadcrumbInterface
      * @param array  $routeParameters
      * @param array  $labelParameters
      */
-    public function __construct($label, $route, array $routeParameters = array(), array $labelParameters = array());
+    public function __construct($label, $route, array $routeParameters = [], array $labelParameters = []);
 
     /**
      * @return string

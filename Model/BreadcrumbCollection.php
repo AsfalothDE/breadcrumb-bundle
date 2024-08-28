@@ -10,7 +10,7 @@ class BreadcrumbCollection implements BreadcrumbCollectionInterface
     /**
      * @var BreadcrumbInterface[] Array of breadcrumbs
      */
-    private $breadcrumbs = array();
+    private $breadcrumbs = [];
 
     /**
      * @param BreadcrumbInterface $breadcrumb
@@ -59,7 +59,7 @@ class BreadcrumbCollection implements BreadcrumbCollectionInterface
      */
     public function addBreadcrumbAtPosition(BreadcrumbInterface $breadcrumb, $position)
     {
-        array_splice($this->breadcrumbs, $position, 0, array($breadcrumb));
+        array_splice($this->breadcrumbs, $position, 0, [$breadcrumb]);
 
         return $this;
     }

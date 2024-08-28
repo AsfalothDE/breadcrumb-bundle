@@ -56,7 +56,7 @@ class BreadcrumbProviderTest extends TestCase
             ->will($this->returnValue($request));
         $this->responseEvent->expects($this->any())
             ->method('getRequestType')
-            ->will($this->returnValue(HttpKernelInterface::MASTER_REQUEST));
+            ->will($this->returnValue(HttpKernelInterface::MAIN_REQUEST));
 
         $this->provider = new BreadcrumbProvider(self::MODEL_CLASS, self::COLLECTION_CLASS);
     }

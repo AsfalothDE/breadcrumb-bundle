@@ -18,3 +18,4 @@ composer.lock
 
 # Code coverage
 coverage/
+/.phpunit.result.cache
